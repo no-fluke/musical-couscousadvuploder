@@ -1,6 +1,6 @@
 {
     "name": "𝐌𝐑𝐁𝐄𝐑𝐋𝐈𝐍 𝐁𝐨𝐭",
-    "description":  "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
+    "description": "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
     "logo": "",
     "keywords": [
         "text-video",
@@ -11,11 +11,13 @@
     "success_url": "",
     "stack": "container",
     "env": {
-        "API_ID": "{Your Telegram API ID — get it from https://my.telegram.org",
+        "API_ID": {
+            "description": "Your Telegram API ID — get it from https://my.telegram.org",
+            "value": "",
             "required": true
         },
         "API_HASH": {
-            "description": "Your Telegram API ID — get it from https://my.telegram.org",
+            "description": "Your Telegram API HASH — get it from https://my.telegram.org",
             "value": "5e7c4088f8e23d0ab61e29ae11960bf5",
             "required": true
         },
@@ -35,7 +37,7 @@
             "required": true
         },
         "MONGO_URI": {
-            "description": "MongoDB Atlas URI \u2014 stores auth users, chats, topics across restarts",
+            "description": "MongoDB Atlas URI — stores auth users, chats, topics across restarts",
             "value": "",
             "required": true
         }
@@ -58,4 +60,4 @@
             "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
         }
     ]
- }
+}
