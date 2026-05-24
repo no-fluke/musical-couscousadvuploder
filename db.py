@@ -35,6 +35,9 @@ class Database:
         print(f"{'='*52}{Style.RESET_ALL}\n")
 
     def _connect(self, max_retries: int, retry_delay: float):
+        if not MONGO_URI:
+            print(f"{Fore.YELLOW}⚠ MONGO_URI not set — running in offline mode (owner-only auth){Style.RESET_ALL}\n")
+            return
         for attempt in range(1, max_retries + 1):
             try:
                 print(f"{Fore.YELLOW}⌛ Attempt {attempt}/{max_retries}: connecting to MongoDB…{Style.RESET_ALL}")
@@ -58,11 +61,9 @@ class Database:
                 print(f"{Fore.RED}✕ Attempt {attempt} failed: {e}{Style.RESET_ALL}")
                 if attempt < max_retries:
                     time.sleep(retry_delay)
-                else:
-                    raise ConnectionError(f"MongoDB unreachable after {max_retries} attempts") from e
             except Exception as e:
                 print(f"{Fore.RED}✕ Unexpected error: {e}{Style.RESET_ALL}")
-                raise
+        print(f"{Fore.YELLOW}⚠ MongoDB unavailable — running in offline mode (owner-only auth){Style.RESET_ALL}\n")
 
     def _setup_indexes(self):
         try:
@@ -82,6 +83,8 @@ class Database:
         """Returns True for owner or any user with a valid (non-expired) subscription."""
         if self.is_owner(user_id):
             return True
+        if self.users is None:
+            return False   # DB offline — only owner allowed
         try:
             doc = self.users.find_one({"user_id": user_id})
             if not doc:
@@ -303,5 +306,25 @@ class Database:
 try:
     db = Database(max_retries=3, retry_delay=2)
 except Exception as e:
-    print(f"{Fore.RED}✕ Fatal: DB init failed — {e}{Style.RESET_ALL}")
-    raise
+    print(f"{Fore.RED}✕ DB init error — {e} — running in offline mode{Style.RESET_ALL}")
+
+    class _FallbackDb:
+        """Stub used when MongoDB is completely unreachable at startup."""
+        def is_owner(self, uid): return uid == OWNER
+        def is_user_authorized(self, uid, **kw): return uid == OWNER
+        def is_admin(self, uid): return uid == OWNER
+        def is_channel_authorized(self, *a, **kw): return False
+        def add_user(self, *a, **kw): return False, None
+        def remove_user(self, *a, **kw): return False
+        def list_users(self, *a, **kw): return []
+        def get_user_expiry_info(self, *a, **kw): return None
+        def add_chat(self, *a, **kw): return False
+        def remove_chat(self, *a, **kw): return False
+        def get_chat(self, *a, **kw): return None
+        def list_chats(self, *a, **kw): return []
+        def add_topic(self, *a, **kw): return False
+        def remove_topic(self, *a, **kw): return False
+        def get_log_channel(self, *a, **kw): return None
+        def set_log_channel(self, *a, **kw): return False
+
+    db = _FallbackDb()
