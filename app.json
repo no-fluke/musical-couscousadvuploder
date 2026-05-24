@@ -1,0 +1,63 @@
+{
+    "name": "\ud835\udc12\ud835\udc1a\ud835\udc22\ud835\udc27\ud835\udc22 \ud835\udc13\ud835\udc31\ud835\udc2d \ud835\udc0b\ud835\udc1e\ud835\udc1e\ud835\udc1c\ud835\udc21 \ud835\udc01\ud835\udc28\ud835\udc2d",
+    "description": "\ud835\udc7b\ud835\udc86\ud835\udc99\ud835\udc95 \ud835\udc73\ud835\udc86\ud835\udc86\ud835\udc84\ud835\udc89 \ud835\udc7d\ud835\udc8a\ud835\udc85\ud835\udc86\ud835\udc90 \ud835\udc6c\ud835\udc99\ud835\udc95\ud835\udc93\ud835\udc82\ud835\udc84\ud835\udc95\ud835\udc90\ud835\udc93 \ud835\udc6d\ud835\udc90\ud835\udc93 \ud835\udc7b\ud835\udc86\ud835\udc8d\ud835\udc86\ud835\udc88\ud835\udc93\ud835\udc82\ud835\udc8e",
+    "logo": "",
+    "keywords": [
+        "text-video",
+        "video-extract",
+        "pyrogram"
+    ],
+    "repository": "",
+    "success_url": "",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc68\ud835\udc91\ud835\udc8a \ud835\udc70\ud835\udc6b",
+            "value": "22182189",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc68\ud835\udc91\ud835\udc8a \ud835\udc6f\ud835\udc82\ud835\udc94\ud835\udc89",
+            "value": "5e7c4088f8e23d0ab61e29ae11960bf5",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc69\ud835\udc90\ud835\udc95 \ud835\udc7b\ud835\udc90\ud835\udc8c\ud835\udc86\ud835\udc8f",
+            "value": "",
+            "required": true
+        },
+        "OWNER": {
+            "description": "\ud835\ude40\ud835\ude63\ud835\ude69\ud835\ude5a\ud835\ude67 \ud835\ude54\ud835\ude64\ud835\ude6a\ud835\ude67 \ud835\ude4f\ud835\ude5a\ud835\ude61\ud835\ude5a\ud835\ude5c\ud835\ude67\ud835\ude56\ud835\ude62 \ud835\ude44\ud835\ude3f",
+            "value": "5680454765",
+            "required": true
+        },
+        "CREDIT": {
+            "description": "\ud835\ude40\ud835\ude63\ud835\ude69\ud835\ude5a\ud835\ude67 \ud835\ude3e\ud835\ude67\ud835\ude5a\ud835\ude59\ud835\ude5e\ud835\ude69 \ud835\ude49\ud835\ude56\ud835\ude62\ud835\ude5a \ud835\ude5e\ud835\ude63 \ud835\ude56\ud835\ude61\ud835\ude62\ud835\ude64\ud835\ude68\ud835\ude69 6-8 \ud835\ude61\ud835\ude5a\ud835\ude69\ud835\ude69\ud835\ude5a\ud835\ude67\ud835\ude68",
+            "value": "\ud835\ude4e\ud835\ude3c\ud835\ude44\ud835\ude49\ud835\ude44 \ud835\ude3d\ud835\ude4a\ud835\ude4f\ud835\ude4e",
+            "required": true
+        },
+        "MONGO_URI": {
+            "description": "MongoDB Atlas URI \u2014 stores auth users, chats, topics across restarts",
+            "value": "",
+            "required": true
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "standard-2x"
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "https://github.com/amivin/aria2-heroku.git"
+        },
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ]
+}
