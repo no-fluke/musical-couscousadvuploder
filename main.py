@@ -695,11 +695,14 @@ async def start(bot, m: Message):
     display_name = sender.first_name if sender else m.chat.title or "there"
     mention = user.mention
     caption = f"🌟 Welcome {sender.mention if sender else display_name} ! 🌟"
-    start_message = await bot.send_photo(
-        chat_id=m.chat.id,
-        photo="https://tinypic.host/images/2025/07/14/IMG_20250714_161041_194.jpg",
-        caption=caption
-    )
+    try:
+        start_message = await bot.send_photo(
+            chat_id=m.chat.id,
+            photo="https://tinypic.host/images/2025/07/14/IMG_20250714_161041_194.jpg",
+            caption=caption
+        )
+    except Exception:
+        start_message = await m.reply_text(caption)
 
     await asyncio.sleep(1)
     await start_message.edit_text(
@@ -751,7 +754,7 @@ async def start(bot, m: Message):
             [InlineKeyboardButton(text="📞 Contact", url=f"tg://openmessage?user_id={OWNER}"), InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/nikhilsainiop/saini-txt-direct")],
         ])
         await start_message.edit_text(
-           f" 🎉 Welcome {m.from_user.first_name if m.from_user else display_name} to DRM Bot! 🎉\n\n"
+           f" 🎉 Welcome {display_name} to DRM Bot! 🎉\n\n"
            f"**You are currently using the free version.** 🆓\n\n<blockquote expandable>I'm here to make your life easier by downloading videos from your **.txt** file 📄 and uploading them directly to Telegram!</blockquote>\n\n**Want to get started? Press /id**\n\n💬 Contact : [{CREDIT}⁬](tg://openmessage?user_id={OWNER}) to Get The Subscription 🎫 and unlock the full potential of your new bot! 🔓\n", disable_web_page_preview=True, reply_markup=keyboard
     )
 
