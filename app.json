@@ -1,6 +1,6 @@
 {
-    "name": "\ud835\udc12\ud835\udc1a\ud835\udc22\ud835\udc27\ud835\udc22 \ud835\udc13\ud835\udc31\ud835\udc2d \ud835\udc0b\ud835\udc1e\ud835\udc1e\ud835\udc1c\ud835\udc21 \ud835\udc01\ud835\udc28\ud835\udc2d",
-    "description": "\ud835\udc7b\ud835\udc86\ud835\udc99\ud835\udc95 \ud835\udc73\ud835\udc86\ud835\udc86\ud835\udc84\ud835\udc89 \ud835\udc7d\ud835\udc8a\ud835\udc85\ud835\udc86\ud835\udc90 \ud835\udc6c\ud835\udc99\ud835\udc95\ud835\udc93\ud835\udc82\ud835\udc84\ud835\udc95\ud835\udc90\ud835\udc93 \ud835\udc6d\ud835\udc90\ud835\udc93 \ud835\udc7b\ud835\udc86\ud835\udc8d\ud835\udc86\ud835\udc88\ud835\udc93\ud835\udc82\ud835\udc8e",
+    "name": "𝐌𝐑𝐁𝐄𝐑𝐋𝐈𝐍 𝐁𝐨𝐭",
+    "description":  "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
     "logo": "",
     "keywords": [
         "text-video",
@@ -11,29 +11,27 @@
     "success_url": "",
     "stack": "container",
     "env": {
-        "API_ID": {
-            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc68\ud835\udc91\ud835\udc8a \ud835\udc70\ud835\udc6b",
-            "value": "22182189",
+        "API_ID": "{Your Telegram API ID — get it from https://my.telegram.org",
             "required": true
         },
         "API_HASH": {
-            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc68\ud835\udc91\ud835\udc8a \ud835\udc6f\ud835\udc82\ud835\udc94\ud835\udc89",
+            "description": "Your Telegram API ID — get it from https://my.telegram.org",
             "value": "5e7c4088f8e23d0ab61e29ae11960bf5",
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "\ud835\udc6c\ud835\udc8f\ud835\udc95\ud835\udc86\ud835\udc93 \ud835\udc80\ud835\udc90\ud835\udc96\ud835\udc93 \ud835\udc69\ud835\udc90\ud835\udc95 \ud835\udc7b\ud835\udc90\ud835\udc8c\ud835\udc86\ud835\udc8f",
+            "description": "Your Bot Token — get it from @BotFather on Telegram",
             "value": "",
             "required": true
         },
         "OWNER": {
-            "description": "\ud835\ude40\ud835\ude63\ud835\ude69\ud835\ude5a\ud835\ude67 \ud835\ude54\ud835\ude64\ud835\ude6a\ud835\ude67 \ud835\ude4f\ud835\ude5a\ud835\ude61\ud835\ude5a\ud835\ude5c\ud835\ude67\ud835\ude56\ud835\ude62 \ud835\ude44\ud835\ude3f",
+            "description": "Your Telegram User ID — get it by sending /id to the bot after deploy",
             "value": "5680454765",
             "required": true
         },
         "CREDIT": {
-            "description": "\ud835\ude40\ud835\ude63\ud835\ude69\ud835\ude5a\ud835\ude67 \ud835\ude3e\ud835\ude67\ud835\ude5a\ud835\ude59\ud835\ude5e\ud835\ude69 \ud835\ude49\ud835\ude56\ud835\ude62\ud835\ude5a \ud835\ude5e\ud835\ude63 \ud835\ude56\ud835\ude61\ud835\ude62\ud835\ude64\ud835\ude68\ud835\ude69 6-8 \ud835\ude61\ud835\ude5a\ud835\ude69\ud835\ude69\ud835\ude5a\ud835\ude67\ud835\ude68",
-            "value": "\ud835\ude4e\ud835\ude3c\ud835\ude44\ud835\ude49\ud835\ude44 \ud835\ude3d\ud835\ude4a\ud835\ude4f\ud835\ude4e",
+            "description": "Bot credit name shown in captions (6–8 letters recommended)",
+            "value": "THE PINKMAN TEAM",
             "required": true
         },
         "MONGO_URI": {
@@ -45,7 +43,7 @@
     "formation": {
         "worker": {
             "quantity": 1,
-            "size": "standard-2x"
+            "size": "standard-1x"
         }
     },
     "addons": [],
